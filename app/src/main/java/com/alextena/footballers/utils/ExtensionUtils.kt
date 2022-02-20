@@ -60,31 +60,4 @@ object ExtensionUtils {
         }
         return this
     }
-
-    //Scan using an EditText
-    fun EditText.scan(keyEvent: KeyEvent): String? {
-        return if (((keyEvent.keyCode == 285) || (keyEvent.keyCode == 286) || (keyEvent.keyCode == 0) || (keyEvent.keyCode == 66)
-                    || (keyEvent.keyCode == 262) || (keyEvent.keyCode == 10036)) && (keyEvent.action == KeyEvent.ACTION_UP)
-        ) {
-            val data = this.text.toString()
-            this.requestFocus()
-            this.text = null
-            data
-        } else {
-            null
-        }
-    }
-
-    //Check if internet is available
-    fun Context.isInternetAvailable(): Boolean {
-        try {
-            val cm =
-                applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val netInfo = cm.activeNetworkInfo
-            return netInfo != null && netInfo.isConnected
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return false
-    }
 }

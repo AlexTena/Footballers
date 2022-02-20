@@ -2,10 +2,8 @@ package com.alextena.footballers.utils
 
 class Constants {
     companion object {
-        const val TITLE = "TITLE"
-        const val BASE_URL = "BASE_URL"
-        const val ID = "ID"
-        const val TYPE = "TYPE"
-        const val STATUS = "STATUS"
+        const val TITLE = "Footballers"
+        const val BASE_URL = "https://futdb.app/api"
+        const val API_KEY = "6becd919-1bd5-4b3e-94be-b2b76108dfa7"
     }
 }

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Footballers</string>
+    <string name="title">Footballers</string>
+    <string name="club_image">Club image</string>
+    <string name="position">position</string>
+    <string name="club">Club</string>
+    <string name="base_stats">Base Stats</string>
+    <string name="pace">PAC</string>
+    <string name="dribbling">DRI</string>
+    <string name="passing">PAS</string>
+    <string name="shooting">SHO</string>
+    <string name="defending">DEF</string>
+    <string name="player_saved">Player Saved Successfully!</string>
+    <string name="player_deleted">Player Deleted</string>
+    <string name="all_players">All Players</string>
+    <string name="saved_players">Saved Players</string>
 </resources>

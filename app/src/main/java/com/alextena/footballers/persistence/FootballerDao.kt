@@ -10,7 +10,7 @@ interface FootballerDao {
     suspend fun upsert(player: Player): Long
 
     @Query("SELECT * FROM players")
-    fun getAllPlayers(): LiveData<List<Player>>
+    fun getSavedPlayers(): LiveData<List<Player>>
 
     @Delete
     suspend fun deletePlayer(player: Player)

@@ -5,7 +5,7 @@ import com.alextena.footballers.network.RetrofitInstance
 import com.alextena.footballers.persistence.AppDatabase
 
 class FootballersRepository(
-    val db: AppDatabase
+    private val db: AppDatabase
 ) {
     //Retrofit
     suspend fun getAllPlayers(pageNumber: Int, limit: Int) =
@@ -14,17 +14,10 @@ class FootballersRepository(
     suspend fun getPlayerImage(playerId: Int) =
         RetrofitInstance.api.getPlayerImage(playerId)
 
-    suspend fun getClubById(clubId: Int) =
-        RetrofitInstance.api.getClubById(clubId)
-
-    suspend fun getClubImage(clubId: Int) =
-        RetrofitInstance.api.getClubImage(clubId)
-
-
     //Room
     suspend fun upsert(player: Player) = db.getFootballerDao().upsert(player)
 
-    fun getAllPlayers() = db.getFootballerDao().getAllPlayers()
+    fun getSavedPlayers() = db.getFootballerDao().getSavedPlayers()
 
     suspend fun deletePlayer(player: Player) = db.getFootballerDao().deletePlayer(player)
 }

@@ -33,7 +33,11 @@
     </fragment>
     <fragment
         android:id="@+id/playerDetailsFragment"
-        android:name="com.alextena.footballers.ui.fragments.PlayerDetailsFragment"
+        android:name="com.alextena.footballers.ui.fragments.detailsFgm.PlayerDetailsFragment"
         android:label="fragment_player_details"
-        tools:layout="@layout/fragment_player_details" />
+        tools:layout="@layout/fragment_player_details" >
+        <argument
+            android:name="player"
+            app:argType="com.alextena.footballers.model.Player" />
+    </fragment>
 </navigation>

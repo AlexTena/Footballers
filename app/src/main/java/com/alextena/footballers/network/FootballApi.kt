@@ -2,6 +2,7 @@ package com.alextena.footballers.network
 
 import com.alextena.footballers.model.ClubResponse
 import com.alextena.footballers.model.PlayersResponse
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -20,7 +21,7 @@ interface FootballApi {
     suspend fun getPlayerImage(
         @Path("player")
         playerId: Int = -1
-    ) : Response <String>
+    ) : Response <ResponseBody>
 
     @GET("clubs/{id}")
     suspend fun getClubById(
@@ -32,5 +33,5 @@ interface FootballApi {
     suspend fun getClubImage(
         @Path("id")
         clubId: Int = -1
-    ) : Response <String>
+    ) : Response <ResponseBody>
 }

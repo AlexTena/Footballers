@@ -4,347 +4,324 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.PlayerDetailsFragment">
+    tools:context=".ui.fragments.detailsFgm.PlayerDetailsFragment">
 
-        <androidx.core.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/background">
+            android:layout_marginBottom="32dp"
+            android:descendantFocusability="blocksDescendants">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="6dp"
+                android:translationZ="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/header"
+                app:srcCompat="@drawable/ic_arrow" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/app_name"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:translationZ="100dp"
+                app:layout_constraintStart_toEndOf="@id/arrow"
+                app:layout_constraintTop_toTopOf="@id/arrow" />
+
+            <ImageView
+                android:id="@+id/club_image"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="25dp"
+                android:contentDescription="@string/club_image"
+                android:translationZ="100dp"
+                app:layout_constraintEnd_toEndOf="@id/header"
+                app:layout_constraintTop_toTopOf="@id/header" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:translationZ="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header"
+                tools:text="Messi" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="32dp"
-                android:descendantFocusability="blocksDescendants">
+                android:layout_height="260dp"
+                android:background="@color/magenta"
+                android:elevation="9dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="12dp"
-                    android:paddingTop="12dp"
-                    android:paddingEnd="6dp"
-                    android:translationZ="100dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/header"
-                    app:srcCompat="@drawable/ic_arrow" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="center"
+                android:translationZ="100dp"
+                app:layout_constraintBottom_toBottomOf="@id/header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/app_name"
-                    style="@style/TextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:translationZ="100dp"
-                    app:layout_constraintStart_toEndOf="@id/arrow"
-                    app:layout_constraintTop_toTopOf="@id/arrow" />
-
-                <ImageView
-                    android:id="@+id/club_image"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:translationZ="100dp"
-                    android:contentDescription="@string/club_image"
-                    app:layout_constraintEnd_toEndOf="@id/header"
-                    app:layout_constraintTop_toTopOf="@id/header" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="36dp"
-                    android:text="@{pokemon.name}"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                    android:textColor="@color/white"
-                    android:textSize="36sp"
-                    android:textStyle="bold"
-                    android:translationZ="100dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/header"
-                    tools:text="Messi" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/header"
-                    android:layout_width="match_parent"
-                    android:layout_height="260dp"
-                    android:background="@color/grass"
-                    android:elevation="9dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/image"
-                    android:layout_width="190dp"
-                    android:layout_height="190dp"
-                    android:layout_marginBottom="20dp"
-                    android:scaleType="center"
-                    android:translationZ="100dp"
-                    app:layout_constraintBottom_toBottomOf="@id/header"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-
-                     />
-
-                <LinearLayout
-                    android:id="@+id/textContainer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/name" >
-
-                    <TextView
-                        android:id="@+id/textView"
-                        style="@style/TextStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="15sp"
-                        android:text="TextView"
-                        tools:text="Position"/>
-                </LinearLayout>
-
-                <ProgressBar
-                    android:id="@+id/progressbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:visibility="gone" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/weight"
-                    style="@style/TextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:textSize="21sp"
-                    app:layout_constraintEnd_toStartOf="@id/height"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textContainer"
-                    tools:text="Argentina" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/height"
-                    style="@style/TextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="21sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/weight"
-                    app:layout_constraintTop_toTopOf="@id/weight"
-                    tools:text="PSG" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/weight_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nation"
-                    android:textColor="@color/white_56"
-                    app:layout_constraintEnd_toStartOf="@id/height"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/weight"
-                    tools:text="Nation" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/height_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/club"
-                    android:textColor="@color/white_56"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/weight"
-                    app:layout_constraintTop_toBottomOf="@id/height"
-                    tools:text="Club"/>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/stats_title"
-                    style="@style/TextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/base_stats"
-                    android:textColor="@color/white_93"
-                    android:textSize="21sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/weight_title" />
-
-                <TextView
-                    android:id="@+id/hp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/pace"
-                    android:textColor="@color/white_70"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/stats_title" />
-
-                <!--
-                    app:progressView_labelText="@{vm.pokemonInfo.hpString}"
-                    app:progressView_max="@{vm.pokemonInfo.maxHp}"
-                    app:progressView_progress="@{vm.pokemonInfo.hp}"
-                 -->
-
-                <com.skydoves.progressview.ProgressView
-                    android:id="@+id/progress_hp"
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintBottom_toBottomOf="@id/hp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/hp"
-                    app:layout_constraintTop_toTopOf="@id/hp"
-                    app:progressView_colorBackground="@color/white"
-                    app:progressView_colorProgress="@color/colorPrimary"
-                    app:progressView_labelColorInner="@color/white"
-                    app:progressView_labelColorOuter="@color/black"
-                    app:progressView_labelSize="12sp"
+                />
 
 
-                    app:progressView_radius="12dp" />
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.647" />
 
-                <TextView
-                    android:id="@+id/attack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/dribbling"
-                    android:textColor="@color/white_70"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/hp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/position"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toStartOf="@id/clubName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                tools:text="RW" />
 
-                <com.skydoves.progressview.ProgressView
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintBottom_toBottomOf="@id/attack"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/progress_hp"
-                    app:layout_constraintTop_toTopOf="@id/attack"
-                    app:progressView_colorBackground="@color/white"
-                    app:progressView_colorProgress="@color/md_orange_100"
-                    app:progressView_labelColorInner="@color/white"
-                    app:progressView_labelColorOuter="@color/black"
-                    app:progressView_labelSize="12sp"
-                    app:progressView_radius="12dp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/clubName"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/position"
+                app:layout_constraintTop_toTopOf="@id/position"
+                tools:text="PSG" />
 
-                <TextView
-                    android:id="@+id/defense"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/passing"
-                    android:textColor="@color/white_70"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/attack" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/position_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/position"
+                android:textColor="@color/white_56"
+                app:layout_constraintEnd_toStartOf="@id/clubName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/position"
+                tools:text="Position" />
 
-                <com.skydoves.progressview.ProgressView
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintBottom_toBottomOf="@id/defense"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/progress_hp"
-                    app:layout_constraintTop_toTopOf="@id/defense"
-                    app:progressView_colorBackground="@color/white"
-                    app:progressView_colorProgress="@color/md_blue_200"
-                    app:progressView_labelColorInner="@color/white"
-                    app:progressView_labelColorOuter="@color/black"
-                    app:progressView_labelSize="12sp"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/club_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/club"
+                android:textColor="@color/white_56"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/position"
+                app:layout_constraintTop_toBottomOf="@id/clubName"
+                tools:text="Club" />
 
-                    app:progressView_radius="12dp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/stats_title"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/base_stats"
+                android:textColor="@color/white_93"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/position_title" />
 
-                <TextView
-                    android:id="@+id/speed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/shooting"
-                    android:textColor="@color/white_70"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/defense" />
+            <TextView
+                android:id="@+id/pace_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/pace"
+                android:textColor="@color/white_70"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title" />
 
-                <com.skydoves.progressview.ProgressView
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintBottom_toBottomOf="@id/speed"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/progress_hp"
-                    app:layout_constraintTop_toTopOf="@id/speed"
-                    app:progressView_colorBackground="@color/white"
-                    app:progressView_colorProgress="@color/flying"
-                    app:progressView_labelColorInner="@color/white"
-                    app:progressView_labelColorOuter="@color/black"
-                    app:progressView_labelSize="12sp"
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/progressPace"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@id/pace_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/pace_title"
+                app:layout_constraintTop_toTopOf="@id/pace_title"
+                app:progressView_colorBackground="@color/white"
+                app:progressView_colorProgress="@color/colorPrimary"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/black"
+                app:progressView_labelSize="12sp"
+                app:progressView_max="99"
+                app:progressView_radius="12dp" />
 
-                    app:progressView_radius="12dp" />
+            <TextView
+                android:id="@+id/dribbling_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/dribbling"
+                android:textColor="@color/white_70"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pace_title" />
 
-                <TextView
-                    android:id="@+id/exp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/defending"
-                    android:textColor="@color/white_70"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/speed" />
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/progressDribbling"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@id/dribbling_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/progressPace"
+                app:layout_constraintTop_toTopOf="@id/dribbling_title"
+                app:progressView_colorBackground="@color/white"
+                app:progressView_colorProgress="@color/md_orange_100"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/black"
+                app:progressView_labelSize="12sp"
+                app:progressView_max="99"
+                app:progressView_radius="12dp" />
 
-                <com.skydoves.progressview.ProgressView
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintBottom_toBottomOf="@id/exp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/progress_hp"
-                    app:layout_constraintTop_toTopOf="@id/exp"
-                    app:progressView_colorBackground="@color/white"
-                    app:progressView_colorProgress="@color/md_green_200"
-                    app:progressView_labelColorInner="@color/white"
-                    app:progressView_labelColorOuter="@color/black"
-                    app:progressView_labelSize="12sp"
+            <TextView
+                android:id="@+id/passing_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/passing"
+                android:textColor="@color/white_70"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dribbling_title" />
 
-                    app:progressView_radius="12dp" />
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/progressPassing"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@id/passing_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/progressPace"
+                app:layout_constraintTop_toTopOf="@id/passing_title"
+                app:progressView_colorBackground="@color/white"
+                app:progressView_colorProgress="@color/md_blue_200"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/black"
+                app:progressView_labelSize="12sp"
+                app:progressView_max="99"
+                app:progressView_radius="12dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:backgroundTint="@color/white_12"
-                    android:src="@drawable/ic_favorite"
-                    app:fabSize="normal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/header" />
+            <TextView
+                android:id="@+id/shooting_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/shooting"
+                android:textColor="@color/white_70"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/passing_title" />
 
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/progressShooting"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@id/shooting_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/progressPace"
+                app:layout_constraintTop_toTopOf="@id/shooting_title"
+                app:progressView_colorBackground="@color/white"
+                app:progressView_colorProgress="@color/md_teal_200"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/black"
+                app:progressView_labelSize="12sp"
+                app:progressView_max="99"
+                app:progressView_radius="12dp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/def_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/defending"
+                android:textColor="@color/white_70"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shooting_title" />
 
-        </androidx.core.widget.NestedScrollView>
+            <com.skydoves.progressview.ProgressView
+                android:id="@+id/progressDefence"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintBottom_toBottomOf="@id/def_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/progressPace"
+                app:layout_constraintTop_toTopOf="@id/def_title"
+                app:progressView_colorBackground="@color/white"
+                app:progressView_colorProgress="@color/md_green_200"
+                app:progressView_labelColorInner="@color/white"
+                app:progressView_labelColorOuter="@color/black"
+                app:progressView_labelSize="12sp"
+                app:progressView_max="99"
+                app:progressView_radius="12dp" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/white_12"
+                android:src="@drawable/ic_favorite"
+                android:translationZ="90dp"
+                app:fabSize="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                android:contentDescription="FAB" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

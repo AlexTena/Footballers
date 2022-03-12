@@ -1,2 +1,2 @@
 # Footballers
-FUT Android App
+Android App - Fifa Ultimate Team player stats viewer 

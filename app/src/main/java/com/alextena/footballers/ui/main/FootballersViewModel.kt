@@ -17,7 +17,6 @@ import retrofit2.Response
 
 class FootballersViewModel: ViewModel() {
     private lateinit var footballersRepository : FootballersRepository
-    private var currentImage: Bitmap? = null
 
     var players: MutableLiveData<Resource<PlayersResponse>> = MutableLiveData()
     var footballersPage: Int = 1
@@ -38,12 +37,11 @@ class FootballersViewModel: ViewModel() {
         if(response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 footballersPage++
-                resultResponse.items.forEach { player ->
-                    val image: Deferred<Bitmap?> = viewModelScope.async(context = Dispatchers.IO) {
-                        getPlayerImage(player.id)
-                    }
-                    player.playerImage = image.await()
-                }
+
+                resultResponse.items
+                    .map { viewModelScope.async { getPlayerImage(it)} }
+                    .awaitAll()
+
                 if(playersListResponse == null) {
                     playersListResponse = resultResponse
                 }
@@ -58,10 +56,9 @@ class FootballersViewModel: ViewModel() {
         return Resource.Error(response.message())
     }
 
-    private suspend fun getPlayerImage(playerId: Int) : Bitmap? {
-        val response = footballersRepository.getPlayerImage(playerId)
-        currentImage  = handleImageResponse(response).data ?: currentImage
-        return currentImage
+    private suspend fun getPlayerImage(player: Player)  {
+        val response = footballersRepository.getPlayerImage(player.id)
+        player.playerImage = handleImageResponse(response).data
     }
 
     private fun handleImageResponse(response: Response<ResponseBody>): Resource<Bitmap> {
